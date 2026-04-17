@@ -10,7 +10,6 @@ import {
   Menu,
   X,
   Bell,
-  Instagram,
   Eye,
   Monitor,
   Phone
@@ -20,7 +19,7 @@ import { cn } from './lib/utils';
 import { useAuth } from './contexts/AuthContext';
 import { recentInvitations } from './data/mock';
 
-// Definição para o TypeScript reconhecer os dados das prévias
+// Interface para evitar erros de tipo no TypeScript
 interface Invitation {
   id: string;
   title: string;
@@ -100,7 +99,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             );
           })}
 
-          {/* Seção de Visualização de Clientes */}
           {isAdmin && (
             <div className="mt-10 pt-10 border-t border-white/5 space-y-4">
               <h3 className="px-3 text-[10px] font-black uppercase tracking-[0.3em] text-slate-600 italic">Visualização do Cliente</h3>
@@ -165,16 +163,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <span className="text-sm font-black text-indigo-400 italic tracking-tighter uppercase">convitesconexoesmagia</span>
               <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Conexões & Magia © 2026</p>
             </div>
-
-            <a
-              href="https://www.instagram.com/convitesconexoesmagia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl transition-all group"
-            >
-              <Instagram className="w-5 h-5 text-indigo-400 group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-bold text-slate-300">Siga @convitesconexoesmagia</span>
-            </a>
           </div>
         </footer>
       </div>
@@ -194,13 +182,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             <div className="text-center mb-8">
               <h2 className="text-2xl font-black italic uppercase tracking-tighter text-indigo-400">{previewInv.title}</h2>
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mt-2">
-                Modo Prévia: {previewInv.aspectRatio === '7/4' ? 'Desktop' : 'Mobile'}
-              </p>
             </div>
 
             <div className={cn(
-              "relative bg-black rounded-[3rem] border-[12px] border-slate-900 shadow-2xl overflow-hidden transition-all duration-700",
+              "relative bg-black rounded-[3rem] border-[12px] border-slate-900 shadow-2xl overflow-hidden",
               previewInv.aspectRatio === '7/4' ? "w-full max-w-5xl aspect-[7/4]" : "w-[360px] aspect-[9/16]"
             )}>
               <iframe
