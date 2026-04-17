@@ -1,8 +1,10 @@
 import React from 'react';
 import { Mail, Phone, Camera, Globe } from 'lucide-react';
+
 interface LayoutProps {
   children: React.ReactNode;
 }
+
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-[#050505] text-white flex flex-col font-sans">
@@ -26,9 +28,11 @@ export default function Layout({ children }: LayoutProps) {
           </a>
         </div>
       </nav>
+
       <main className="flex-1 w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         {children}
       </main>
+
       <footer className="p-10 border-t border-white/5 bg-black/40 text-center">
         <div className="flex justify-center gap-2 mb-4 text-slate-600">
            <Globe className="w-4 h-4" />
