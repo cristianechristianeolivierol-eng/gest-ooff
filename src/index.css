@@ -1,0 +1,7 @@
+@import "tailwindcss";
+/* Opcional: Para garantir que o fundo fique escuro como no seu layout */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #050505;
+}
